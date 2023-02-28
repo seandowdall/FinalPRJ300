@@ -3,8 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
-};
+  production: false,
+  apiUri : 'http://localhost:3000',
+  auth0:
+  {
+    domain: 'dev-c8iabdeh6lcjoqy6.us.auth0.com',
+    clientId: 'QqoPETWnayIKxzuK5iRSmD8wvQMWnRcM',
+    callback_URL: 'localhost:4200/callback',
+    audience: 'prj300'
+  }
+}
+
 
 /*
  * For easier debugging in development mode, you can import the following file
