@@ -11,6 +11,8 @@ export class DatatblComponent implements OnInit {
   body!: any[];
   p: number = 1;
 
+  
+
   constructor(private http:HttpClient){}
 
   ngOnInit(){
@@ -23,5 +25,6 @@ export class DatatblComponent implements OnInit {
         this.body = data.body;
       });
   }
+  
 
 }

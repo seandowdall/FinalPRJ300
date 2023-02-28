@@ -12,6 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { DatatblComponent } from './datatbl/datatbl.component';
 //pagination
 import { NgxPaginationModule } from 'ngx-pagination';
+import { UploadimgComponent } from './uploadimg/uploadimg.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AppComponent,
     HeaderComponent,
     DatatblComponent,
+    UploadimgComponent,
     
     
     
