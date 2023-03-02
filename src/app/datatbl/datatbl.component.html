@@ -1,40 +1,56 @@
 <div class="container">
     <table class="table table-hover">
         <thead class="thead-dark">
-            <tr>
-                <th scope="col">Date</th>
-                <th scope="col">StudentID</th>
-                <th scope="col">FullName</th>
-                <th scope="col">Time</th>
-                <th scope="col">Match %</th>
-                <th scope="col">Room #</th>
-                <th scope="col">IP Address</th>
-                <th scope="col">Mac Address</th>
-                <th scope="col">Pass</th>
-
-            </tr>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">StudentID</th>
+            <th scope="col">FullName</th>
+            <th scope="col">Time</th>
+            <th scope="col">Match %</th>
+            <th scope="col">Room #</th>
+            <th scope="col">IP Address</th>
+            <th scope="col">Mac Address</th>
+            <th scope="col">Pass</th>
+          </tr>
         </thead>
         <tbody>
-            <!--Displaying all the Logging Data, adding pagination and highlighting succesfull attempts in green and failed attempts in red-->
-            <tr *ngFor="let item of body | paginate: { itemsPerPage: 10, currentPage: p }"
-                [ngClass]="{'table-success': item.Pass === 1, 'table-danger': item.Pass === 0}">
-                <td scope="row">{{item.Date}}</td>
-                <td scope="row">{{item.StudentId }}</td>
-                <td scope="row">{{item.FullName}}</td>
-                <td scope="row">{{item.Time }}</td>
-                <td scope="row">{{item.Match }}</td>
-                <td scope="row">AWAITING DATA</td>
-                <td scope="row">AWAITING DATA</td>
-                <td scope="row">AWAITING DATA</td>
-                <td scope="row" [ngClass]="{'pass': item.Pass === 1, 'fail': item.Pass === 0}">
-                    {{item.Pass === 1 ? '✔️' : '❌'}}
-                </td>
-
+          <ng-container *ngFor="let item of body | paginate: { itemsPerPage: 10, currentPage: p }">
+            <tr [ngClass]="{'table-success': item.Pass === 1, 'table-danger': item.Pass === 0}"
+                (click)="item.expanded = !item.expanded">
+              <td scope="row">{{item.Date}}</td>
+              <td scope="row">{{item.StudentId }}</td>
+              <td scope="row">{{item.FullName}}</td>
+              <td scope="row">{{item.Time }}</td>
+              <td scope="row">{{item.Match }}</td>
+              <td scope="row">AWAITING DATA</td>
+              <td scope="row">AWAITING DATA</td>
+              <td scope="row">AWAITING DATA</td>
+              <td scope="row" [ngClass]="{'pass': item.Pass === 1, 'fail': item.Pass === 0}">
+                {{item.Pass === 1 ? '✔️' : '❌'}}
+              </td>
             </tr>
+            <tr *ngIf="item.expanded">
+              <td colspan="9">
+                <!-- Additional information to display when row is expanded -->
+                <table>
+                  <tr>
+                    <td>Room Number:</td>
+                    <td>{{item.RoomNumber}}</td>
+                  </tr>
+                  <tr>
+                    <td>IP Address:</td>
+                    <td>{{item.IPAddress}}</td>
+                  </tr>
+                  <tr>
+                    <td>Mac Address:</td>
+                    <td>{{item.MacAddress}}</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </ng-container>
         </tbody>
-    </table>
+      </table>
 
     <pagination-controls (pageChange)="p = $event" style="text-align: center;"></pagination-controls>
 </div>
-
-

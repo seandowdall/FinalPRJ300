@@ -11,7 +11,8 @@ export class DatatblComponent implements OnInit {
   body!: any[];
   p: number = 1;
 
-  
+  selectedRow: any;
+
 
   constructor(private http:HttpClient){}
 
