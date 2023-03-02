@@ -34,17 +34,12 @@
                 <!-- Additional information to display when row is expanded -->
                 <table>
                   <tr>
-                    <td>Room Number:</td>
-                    <td>{{item.RoomNumber}}</td>
+                    <th>Image:</th>
+                    <td>
+                        <img src="https://logging-data-bucket-prj300.s3.eu-west-1.amazonaws.com/{{item.FileName}}">
+                    </td>
                   </tr>
-                  <tr>
-                    <td>IP Address:</td>
-                    <td>{{item.IPAddress}}</td>
-                  </tr>
-                  <tr>
-                    <td>Mac Address:</td>
-                    <td>{{item.MacAddress}}</td>
-                  </tr>
+                  
                 </table>
               </td>
             </tr>

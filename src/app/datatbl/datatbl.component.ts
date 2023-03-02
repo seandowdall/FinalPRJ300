@@ -11,13 +11,15 @@ export class DatatblComponent implements OnInit {
   body!: any[];
   p: number = 1;
 
-  selectedRow: any;
+  
+  
 
 
   constructor(private http:HttpClient){}
 
   ngOnInit(){
     this.getData();
+    
   }
 
   getData() {
@@ -26,6 +28,11 @@ export class DatatblComponent implements OnInit {
         this.body = data.body;
       });
   }
+  
+  
+  
+  
+  
   
 
 }
