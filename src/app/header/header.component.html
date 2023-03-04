@@ -10,15 +10,15 @@
         </ul>
 
         <div class="text-end">
-          <ng-container *ngIf="isAuthenticated$ | async; else loggedOut">
-            <button class="btn btn-outline-light me-2" (click)="auth.logout()">
-                Log out
+          <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
+            <button class="btn btn-outline-light me-2" (click)="auth.logout({ logoutParams: { returnTo: document.location.origin } })">
+              Log out
             </button>
-        </ng-container>
-        <ng-template #loggedOut>
-          <button class="btn btn-outline-light me-2" (click)="auth.loginWithRedirect()">Log in</button>
-      </ng-template>
-          
+          </ng-container>
+      
+          <ng-template #loggedOut>
+            <button class="btn btn-outline-light me-2" (click)="auth.loginWithRedirect()">Log in</button>
+          </ng-template>
         </div>
       </div>
     </div>

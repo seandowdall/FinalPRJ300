@@ -31,17 +31,14 @@ import { UploadimgComponent } from './uploadimg/uploadimg.component';
     HttpClientModule,
     ReactiveFormsModule,
     AuthModule.forRoot({...environment.auth0,
-      httpInterceptor: {
-        allowedList: [],
-      },}),
+      authorizationParams: {
+        redirect_uri: window.location.origin
+      }
+    }),
     NgxPaginationModule,
     FormsModule
   ],
-  providers: [ {
-    provide: HTTP_INTERCEPTORS,
-    useClass: AuthHttpInterceptor,
-    multi: true,
-  },],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

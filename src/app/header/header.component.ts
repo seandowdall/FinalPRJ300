@@ -9,9 +9,10 @@ import { AuthService } from '@auth0/auth0-angular';
 })
 export class HeaderComponent implements OnInit {
 
-  isAuthenticated$ = this.auth.isAuthenticated$
+  //isAuthenticated$ = this.auth.isAuthenticated$
 
   constructor(@Inject(DOCUMENT) public document: Document, public auth: AuthService) {}
+
 
   ngOnInit(): void {
   }
