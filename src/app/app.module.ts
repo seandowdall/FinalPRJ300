@@ -36,7 +36,8 @@ import { UploadimgComponent } from './uploadimg/uploadimg.component';
       }
     }),
     NgxPaginationModule,
-    FormsModule
+    FormsModule,
+    
   ],
   
   bootstrap: [AppComponent]

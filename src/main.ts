@@ -4,6 +4,8 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
+import { S3Service } from './app/s3.service';
+
 if (environment.production) {
   enableProdMode();
 }
