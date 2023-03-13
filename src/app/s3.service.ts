@@ -28,7 +28,7 @@ export class S3Service {
     });
   }
 
-  uploadFile(file: File): Promise<void> {
+  uploadFile(file: File,  ): Promise<void> {
     return new Promise((resolve, reject) => {
       const filePath = file.name;
       const fileUrl = `https://${this.bucketRegion}.amazonaws.com/${filePath}`;
@@ -37,7 +37,9 @@ export class S3Service {
         const body = event.target.result;
         this.s3.upload({
           Key: filePath,
-          Body: body
+          Body: body,
+          
+          
           
         }, (err: any, data: any) => {
           if (err) {

@@ -18,6 +18,7 @@ export class UploadimgComponent implements OnInit {
 
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
+    console.log(this.selectedFile)
   }
 
   onUpload() {
