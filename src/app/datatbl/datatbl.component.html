@@ -22,9 +22,9 @@
               <td scope="row">{{item.FullName}}</td>
               <td scope="row">{{item.Time }}</td>
               <td scope="row">{{item.Match }}</td>
-              <td scope="row">AWAITING DATA</td>
-              <td scope="row">AWAITING DATA</td>
-              <td scope="row">AWAITING DATA</td>
+              <td scope="row">{{item.RoomNo}}</td>
+              <td scope="row">{{item.IPAddress}}</td>
+              <td scope="row">{{item.MAC}}</td>
               <td scope="row" [ngClass]="{'pass': item.Pass === 1, 'fail': item.Pass === 0}">
                 {{item.Pass === 1 ? '✔️' : '❌'}}
               </td>
