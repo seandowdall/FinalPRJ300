@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '@auth0/auth0-angular';
+import { Subscription } from 'rxjs';
 import { S3Service } from '../s3.service';
 
 @Component({
@@ -12,9 +15,20 @@ export class UploadimgComponent implements OnInit {
   private selectedFile: File | undefined;
   private fullName: string | undefined;
   private studentNo: string | undefined;
+  isLoggedIn = false;
+  private subscription!: Subscription;
+
+  constructor(private s3Service: S3Service, private http: HttpClient, private authService: AuthService) { }
+
+  ngOnInit() {
+    
+    this.subscription = this.authService.isAuthenticated$.subscribe((isAuthenticated) => {
+      this.isLoggedIn = isAuthenticated;
 
 
-  constructor(private s3Service: S3Service) { }
+
+    });
+  }
 
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
@@ -29,8 +43,7 @@ export class UploadimgComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-  }
+  
   showForm() {
     this.showAddForm = !this.showAddForm;
   }
