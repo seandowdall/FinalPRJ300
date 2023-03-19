@@ -25,6 +25,7 @@
     "aws-sdk": "^2.1328.0",
     "bootstrap": "^5.2.3",
     "fine-uploader": "^5.16.2",
+    "firebase": "^9.18.0",
     "ngx-pagination": "^6.0.3",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
