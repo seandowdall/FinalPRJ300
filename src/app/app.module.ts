@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 //auth0 in angular
 import { AuthHttpInterceptor, AuthModule } from '@auth0/auth0-angular';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/.env/environment';
 import {  HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
